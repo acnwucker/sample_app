@@ -53,6 +53,8 @@ class UsersController < ApplicationController
     unless current_user?(user)
       user.destroy
       flash[:success] = "User destroyed."
+    else
+      flash[:error] = "Cannot delete yourself."
     end
     redirect_to users_path
   end
